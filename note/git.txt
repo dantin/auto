@@ -7,3 +7,16 @@ git remote add github https://github.com/xxx.git
 git add file.txt
 git commit -m "comment"
 git push github master
+
+====================================
+Certificate verification error
+====================================
+
+$ git clone https://github.com/dantin/auto.git
+
+error: server certificate verification failed. CAfile: /etc/ssl/certs/ca-certificates.crt CRLfile: none while accessing https://github.com/dantin/auto.git
+fatal: HTTP request failed
+
+忽略 SSL 验证
+
+$ export GIT_SSL_NO_VERIFY=false
