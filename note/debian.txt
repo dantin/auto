@@ -124,6 +124,12 @@ URL: http://blog.csdn.net/rainysia/article/details/7592527
 $ aptitude install git
 
 ====================================
+TITLE: 安装 unzip
+====================================
+
+$ apt-get install unzip
+
+====================================
 TITLE: 路由修改
 ====================================
 
