@@ -1,0 +1,51 @@
+====================================
+TITLE: 准备安装介质
+====================================
+
+# 下载
+
+$ wget -c http://www.raspberrypi.org/downloads/xxxx.zip
+
+# 验证下载内容
+
+$ sha1sum 2013-05-25-wheezy-raspbian.zip
+$ if [ '131f2810b1871a032dd6d1482dfba10964b43bd2' == '131f2810b1871a032dd6d1482dfba10964b43bd2' ]; then echo 'ok'; fi
+
+# 解压
+
+$ unzip 2013-05-25-wheezy-raspbian.zip
+
+# 卸载分区
+
+# umount /dev/sdb1
+# umount /dev/sdb2
+
+# 烧录
+
+# dd bs=4M if=2013-05-25-wheezy-raspbian.img of=/dev/sdb
+# sync # 确认写入
+# umount /dev/sdb
+
+====================================
+TITLE: Raspberry PI 的设置
+====================================
+
+Raspian系统设置：
+
+    info：系统设置工具的信息
+    expand-rootfs：扩大Linux系统root分区的大小，使能
+    overscan：让系统充分利用整个屏幕
+    configure_keyboard：选择键盘布局（Raspberry Pi键盘布局默认英式，这里可以调整，Generic 105-key(Intel) PC -> (Other) -> English (US) -> No compose key -> enable CTRL+ALT+BACKSPACE）
+    change_pass：修改用户密码（Raspbian默认用户名为pi，密码raspberry）
+    change_local：修改输入法（可以修改成中文输入，不过先要安装字体，暂时不修改）
+    change_timezone：修改系统时区（Raspberry Pi没有实时时钟，靠网络同步时间）
+    memory_split：修改内存划分（一共256MB内存，修改ARM处理器和图形加速器的分配）
+    ssh：使能ssh服务器（建议开启，这样可以通过ssh访问Raspberry Pi）
+    boot_behaviour：设置系统启动进入命令行界面还是图形界面（在命令行模式输入startx可以进入图形界面）
+    update：可以在线升级
+
+设置完成后选择finish退出设置界面，重启系统，Raspberry Pi就首次进入了命令行模式
+
+如果配置上需要重新设置，可以在命令行运行
+
+# raspi-config
