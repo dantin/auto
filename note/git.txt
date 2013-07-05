@@ -1,0 +1,9 @@
+git clone https://github.com/dantin/auto.git
+
+git config --global user.name "user name"
+git config --global user.email user@mail.com
+git remote add github https://github.com/xxx.git
+
+git add file.txt
+git commit -m "comment"
+git push github master
