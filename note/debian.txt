@@ -1,0 +1,125 @@
+====================================
+TITLE: Debian 中文乱码
+====================================
+
+# aptitude install locales
+# dpkg-reconfigure locales
+
+选择 en_US.UTF8
+
+/etc/default/locale
+LANG=en_US.UTF-8
+
+====================================
+TITLE: 设置固定IP
+
+URL: http://www.360doc.com/content/13/0516/16/12139495_285882114.shtml
+====================================
+
+需要使用的文件
+/etc/network/interfaces
+/etc/resolv.conf
+
+设置IP地址
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+#allow-hotplug eth0
+#auto eth0
+#iface eth0 inet dhcp
+# 使用第一块网卡
+auto eth0
+# 静态分配IP
+iface eth0 inet static
+address 192.168.26.131
+netmask 255.255.255.0
+gateway 192.168.26.2
+
+设置DNS
+domain localdomain
+search localdomain
+nameserver 192.168.26.2
+
+重启网卡
+
+$ /etc/init.d/networking restart
+
+====================================
+TITLE: 查看网关
+====================================
+
+$ cat /etc/resolv.conf
+domain localdomain
+search localdomain
+nameserver 192.168.26.2
+
+$ netstat -r
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+default         192.168.26.2    0.0.0.0         UG        0 0          0 eth0
+192.168.26.0    *               255.255.255.0   U         0 0          0 eth0
+
+$ ip route show
+default via 192.168.26.2 dev eth0
+192.168.26.0/24 dev eth0  proto kernel  scope link  src 192.168.26.131
+
+====================================
+TITLE: 安装 sudo
+
+URL: http://tw.tonytuan.org/2009/10/debiansudoers-list.html#ixzz2Y8ccj9fs
+====================================
+
+# aptitude install sudo
+
+然後再執行
+# visudo
+增加一行 %sudo ALL=(ALL) ALL
+
+然後再將使用者加到 sudo 這個群組裡面
+# gpasswd -a fourdollars sudo
+
+輸入visudo(用來修改sudoers list)
+找到下面這行
+root ALL=(ALL) ALL
+在步驟2那行下方，打上：
+david ALL=(ALL) ALL
+
+====================================
+TITLE: 修改 visudo 的默认编辑器
+====================================
+
+visudo 默认的编辑器为 /usr/bin/editor，它指向 /etc/alternatives/editor
+
+# update-alternatives --config editor
+
+选择编辑器
+
+There are 4 choices for the alternative editor (providing /usr/bin/editor).
+
+  Selection    Path                Priority   Status
+------------------------------------------------------------
+* 0            /bin/nano            40        auto mode
+  1            /bin/nano            40        manual mode
+  2            /usr/bin/emacs23     0         manual mode
+  3            /usr/bin/vim.basic   30        manual mode
+  4            /usr/bin/vim.tiny    10        manual mode
+
+Press enter to keep the current choice[*], or type selection number: 3
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in manual mode
+
+# ls -l /usr/bin/editor
+lrwxrwxrwx 1 root root 24 Jul  3 15:51 /usr/bin/editor -> /etc/alternatives/editor
+
+# ls -l /etc/alternatives/editor
+lrwxrwxrwx 1 root root 18 Jul  5 11:09 /etc/alternatives/editor -> /usr/bin/vim.basic
+
+====================================
+TITLE: 安装 git
+
+URL: http://blog.csdn.net/rainysia/article/details/7592527
+====================================
+
+$ aptitude install git
+
