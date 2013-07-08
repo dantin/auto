@@ -10,3 +10,14 @@ C-@
 M-w                        复制
 C-w                        剪切
 C-y                        粘贴
+
+C-h t                      帮助
+C-h i                      帮助的 Info 文档
+C-h ?
+C-h k                      描述快捷键
+C-h w                      通过描述现实快捷键
+
+C-x o                      切换到另一个窗口
+
+;; Lisp 模式中
+C-c C-z                    切换到与Lisp交互的窗口
