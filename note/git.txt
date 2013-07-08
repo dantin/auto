@@ -8,6 +8,9 @@ git add file.txt
 git commit -m "comment"
 git push github master
 
+# 从远程获取最新版本并merge到本地
+git pull github master
+
 ====================================
 Certificate verification error
 ====================================
