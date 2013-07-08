@@ -3,6 +3,7 @@ C-x k                      关闭一个 buffer
 C-x C-f                    打开/创建一个文件
 C-x C-s                    保存
 C-x C-w                    另存为
+C-x b                      切换 buffer
 
 C-<space>                  标记
 C-@
@@ -21,3 +22,6 @@ C-x o                      切换到另一个窗口
 
 ;; Lisp 模式中
 C-c C-z                    切换到与Lisp交互的窗口
+C-c C-c                    slime-compile-defun，在SLIME中运行函数
+C-c C-q *                  slime-close-all-parens-in-sexp，关闭所有的括号
+
