@@ -20,3 +20,14 @@ fatal: HTTP request failed
 忽略 SSL 验证
 
 $ export GIT_SSL_NO_VERIFY=false
+
+====================================
+TITLE: Error "Failed connect to github.com"
+====================================
+
+error: Failed connect to github.com:443; Connection timed out while accessing 
+https://github.com/vinayptl/TestingApplication.git/info/refs
+
+fatal: HTTP request failed
+
+设置 http_proxy 和 https_proxy 环境变量
