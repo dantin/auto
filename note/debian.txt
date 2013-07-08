@@ -148,3 +148,11 @@ TITLE: 路由修改
 添加路由
 
 # route add -net x.x.x.x/24 gw x.x.x.x
+
+====================================
+TITLE: 设置代理
+====================================
+
+$ export http_proxy=http://username:password@proxyserver.net:port/
+$ export https_proxy=http://username:password@proxyserver.net:port/
+$ export ftp_proxy=http://username:password@proxyserver.net:port/
