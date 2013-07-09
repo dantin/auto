@@ -25,3 +25,5 @@ C-c C-z                    切换到与Lisp交互的窗口
 C-c C-c                    slime-compile-defun，在SLIME中运行函数
 C-c C-q *                  slime-close-all-parens-in-sexp，关闭所有的括号
 
+C-c C-l                    slime-load-file，加载文件
+C-c C-k                    加载当前 buffer 的文件
