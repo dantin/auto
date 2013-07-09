@@ -9,3 +9,70 @@ TITLE: 清除Mac OS X文件打开方式中的重复项
 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"
 
 这样再次右键使用"打开方式"的时候，就不会出现那么多重复项目了
+
+====================================
+Title: Homebrew 的安装与使用
+
+URL: http://linfan.info/blog/2012/02/25/homebrew-installation-and-usage/
+====================================
+Homebrew 是一个软件包管理软件，类似Linux 中的 APT 与 Yum。在Mac OS X平台，与它功能相似的还有MacPorts, Fink等。
+
+MacPorts有个原则，对于软件包之间的依赖，都在MacPorts内部解决（/opt/local)，不论Mac OS X是否包含了需要的库，都不会加以利用。
+
+而Homebrew则相反，它尽可能地利用系统自带的各种库，一方面软件包的编译时间缩短，另一方面也不会造成冗余。Homebrew的另一个特点是使用Ruby定义软件包的安装配置。
+
+Fink维护人手有限，软件包的更新不是很及时。
+
+安装需求
+基于Intel CPU
+操作系统为Mac OS X 10.5 Leopard或更高版本
+已安装版本管理工具Git
+已安装Xcode开发工具
+已安装Java Developer Update
+
+安装：
+
+$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+
+官方网站为: http://mxcl.github.io/homebrew/index_zh-cn.html
+
+使用：
+
+查找软件包
+
+$ brew search wget
+
+安装软件包
+
+$ brew install wget
+
+列出已安装的软件包
+
+$ brew list
+
+删除软件包
+
+$ brew remove wget
+
+查看软件包信息
+
+$ brew info wget
+
+列出软件包的依赖关系
+
+$ brew deps wget
+
+更新brew
+
+$ brew update
+
+列出过时的软件包
+
+$ brew outdated
+
+更新过时的软件包（全部或指定）
+
+$ brew upgrade
+$ brew upgrade wget
+
+
