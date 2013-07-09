@@ -4,6 +4,7 @@ C-x C-f                    打开/创建一个文件
 C-x C-s                    保存
 C-x C-w                    另存为
 C-x b                      切换 buffer
+C-x u                      undo
 
 C-<space>                  标记
 C-@
