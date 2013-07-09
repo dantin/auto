@@ -1,0 +1,28 @@
+====================================
+Title: 在 Emacs 中设置 SLIME
+
+URL: http://stackoverflow.com/questions/12607716/setting-the-slime-in-emacs
+====================================
+
+安装 SBCL
+
+$ sudo apt-get install sbcl
+
+安装 quick lisp
+
+$ sudo apt-get install wget
+$ cd ~/Download
+$ wget http://beta.quicklisp.org/quicklisp.lisp
+$ sbcl --load ./quicklisp.lisp
+
+* (quicklisp-quickstart:install)
+如果有代理，需要使用 :proxy 选项
+* (quicklisp-quickstart:install :proxy "http://172.25.9.252:8080/")
+* (ql:add-to-init-file)
+* (ql:quickload "quicklisp-slime-helper")
+* (quit)
+
+修改 emacs 配置 ~/.emacs
+
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "sbcl")
