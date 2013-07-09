@@ -26,3 +26,16 @@ $ sbcl --load ./quicklisp.lisp
 
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "sbcl")
+
+====================================
+Title: 修改 Quicklisp 的安装路径
+
+URL: http://lisp.tw/2013/06/30/quicklisp-faq/
+====================================
+
+加载 quicklisp.lisp 之后，使用 :path 选项
+
+* (quicklisp-quickstart:install :path ".quicklisp/")
+
+或者，安装好 quicklisp 之后，将 ~/quicklisp 目录，改成别的名字来修订路径
+
