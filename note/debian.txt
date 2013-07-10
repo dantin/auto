@@ -156,3 +156,17 @@ TITLE: 设置代理
 $ export http_proxy=http://username:password@proxyserver.net:port/
 $ export https_proxy=http://username:password@proxyserver.net:port/
 $ export ftp_proxy=http://username:password@proxyserver.net:port/
+
+====================================
+TITLE: 在 Shell Script 中设置当前 Shell 的环境变量
+====================================
+
+通常的做法是写一个 shell script，然后再 Bash 或 Ksh 中用 "."，在 C Shell 中用 source 去执行那个 Shell Script，例如：
+
+Bash 或 C Shell
+
+$ . myscript
+
+C shell
+
+$ source myscript
