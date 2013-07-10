@@ -100,3 +100,13 @@ curl: (22) The requested URL returned error: 404
 例如，lftp的配置位于/usr/local/Library/Formula/lftp.rb，用编辑器打开，修改文件名和对应的md5，再次执行
 
 $ brew install lftp，即可完成安装
+
+====================================
+TITLE: Office 2011 for Mac 字体模糊解决办法
+====================================
+
+Office 2011 for Mac默认不支持Retina屏，使用过程中会出现字体模糊的现象。
+
+解决办法是升级至version 14.2.4，方法如下:
+
+帮助-->检查更新，手动更新
