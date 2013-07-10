@@ -117,3 +117,9 @@ TITLE: 打开多个终端
 
 Command+N 新终端窗口
 Command+T 新终端tab
+
+====================================
+TITLE: goagent安装和使用
+====================================
+http://irising.me/2012/02/13376/
+http://www.guokr.com/blog/436937/
