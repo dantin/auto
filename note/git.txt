@@ -11,6 +11,9 @@ git push github master
 # 从远程获取最新版本并merge到本地
 git pull github master
 
+# 把修改过的单一文档返回到未修改状态
+git checkout -- filename
+
 ====================================
 Certificate verification error
 ====================================
