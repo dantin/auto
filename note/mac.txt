@@ -70,9 +70,17 @@ $ brew update
 
 $ brew outdated
 
+查看brew的安装状态
+
+$ brew doctor
+
 更新过时的软件包（全部或指定）
 
 $ brew upgrade
 $ brew upgrade wget
 
+brew的默认安装路径在 /usr/local/Cellar/
 
+如果从以前版本的OSX升级，需要更新Xcode位置
+
+$ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
