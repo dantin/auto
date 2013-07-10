@@ -84,3 +84,19 @@ brew的默认安装路径在 /usr/local/Cellar/
 如果从以前版本的OSX升级，需要更新Xcode位置
 
 $ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
+====================================
+TITLE: Homebrew无法下载安装文档
+====================================
+
+以lftp为例，如果碰到安装src无法下载
+
+curl: (22) The requested URL returned error: 404
+
+需要修复配置文件。方法如下：
+
+用浏览器打开http://ftp.yars.free.net/pub/source/lftp/，查看最新的文档名lftp-4.3.1.tar.bz2，Homebrew针对每一种软件，都有自己独立的配置文档，名称为Formula，位于目录/usr/local/Library/Formula路径下。
+
+例如，lftp的配置位于/usr/local/Library/Formula/lftp.rb，用编辑器打开，修改文件名和对应的md5，再次执行
+
+$ brew install lftp，即可完成安装
