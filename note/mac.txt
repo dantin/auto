@@ -120,6 +120,58 @@ Command+T 新终端tab
 
 ====================================
 TITLE: goagent安装和使用
+
+URL: http://irising.me/2012/02/13376/
+     http://www.guokr.com/blog/436937/
 ====================================
-http://irising.me/2012/02/13376/
-http://www.guokr.com/blog/436937/
+
+1) 申请appengine.google.com的个人appid
+
+登录appengine.google.com，申请个人apppid，它将在Goagent中用到。appid只要唯一就可以，必须是英文字符和数字。
+
+2) 安装和本地部署
+
+一 安装Goagent客户端
+
+创建成功后，接下来的工作就是安装本机中的Goagent客户端。
+
+下载地址：http://code.google.com/p/goagent/
+
+解压缩文件以后可以复制到用户名的根目录下。然后：
+
+   1) 修改/local文件夹中的proxy.ini文件，将appid修改成你的appid，如果是多个中间用｜隔开，例如:
+
+   [gae]
+   appid = xxxxxxxxxx
+
+   2) 找到ca.crt文件，双击导入ca.crt证书。
+
+二 上传Goagent文件到Google app
+
+$ cd goagent/server
+$ python uploader.zip update ./
+APPID: xxxxxxxxxx
+...
+Email: xxxxx@gmail.com
+Password: xxxxxxxxxxxx
+....
+
+接下来会提示输入你的Google帐号和密码，也就是你的Google mail邮箱地址。密码输入过程不会显示字符，输入完回车即可，命令行最后出现Completed update of app说明已经上传成功。
+
+三 创建代理网络位置
+
+系统设置 -> 网络 -> 位置
+
+新建一个网络位置，例如：命名为Goagent，并将Web代理、安全Web代理两项勾选上，代理服务器地址均为，127.0.0.1,端口为8087。
+
+四 激活和使用
+
+用终端命令行激活代理
+
+在终端输入cd goagent/local 回车，然后再输入python proxy.py 回车。
+
+切换网络位置
+
+切换网络位置的快捷方法，不安装其他软件可以到苹果菜单下切换。
+
+位置 -> Goagent
