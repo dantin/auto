@@ -50,6 +50,11 @@ DEL                        删除光标前的字符
 M-d                        删除光标后的单词
 M-DEL                      删除光标前的单词 
 
+C-k                        从光标位置删除到行尾
+C-S-Backspace              删除当前行
+M-x kill-whole-line
+
+
 C-x k                      关闭一个 buffer
 C-x C-f                    打开/创建一个文件
 C-x C-s                    保存
