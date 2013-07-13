@@ -328,3 +328,10 @@ $ apt-get install flashplugin-nonfree
 
 问题: Adobe 宣布在 Flash Player 11.2 之后将不再为桌面 Linux 平台提供使用 NPAPI 接口的新版本 Flash Player，仅提供安全更新。参见: http://mkv.cn/2546/adobe-announce-to-abondon-naapi-flash-player-on-linux
 
+====================================
+TITLE: chromium无法上网
+====================================
+
+可能于设置有关，Settings -> Show advanced settings...
+
+去掉 Predict network actions to improve page load performance
