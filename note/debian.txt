@@ -317,3 +317,14 @@ $ aptitude install chromium-browser-l10n
 
 $ aptitude search flashplugin
 $ apt-get install flashplugin-nonfree
+
+上述方法可能没有效果，对此，可以安装Adobe的Flash Player
+
+下载地址: http://get.adobe.com/flashplayer/?no_redirect
+
+# tar -zxvf install_flash_player_11_linux.x86_64.tar.gz
+# cp libflashplayer.so /usr/lib/mozilla/plugins/
+# cp -r usr/* /usr
+
+问题: Adobe 宣布在 Flash Player 11.2 之后将不再为桌面 Linux 平台提供使用 NPAPI 接口的新版本 Flash Player，仅提供安全更新。参见: http://mkv.cn/2546/adobe-announce-to-abondon-naapi-flash-player-on-linux
+
