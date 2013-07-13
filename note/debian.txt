@@ -6,6 +6,27 @@ TITLE: 将 iso 映象写入 U盘
 # sync
 
 ====================================
+TITLE: 更新Debian源
+====================================
+
+在/etc/apt/sources.list中，更新如下内容
+
+# Debian 7.1.0 "Wheezy"
+deb http://mirrors.163.com/debian/ wheezy main contrib non-free
+deb-src http://mirrors.163.com/debian/ wheezy main contrib non-free
+
+deb http://security.debian.org/ wheezy/updates main contrib non-free
+deb-src http://security.debian.org/ wheezy/updates main contrib non-free
+
+# wheezy-updates, previously known as 'volatile'
+deb http://mirrors.163.com/debian/ wheezy-updates main contrib non-free
+deb-src http://mirrors.163.com/debian/ wheezy-updates main contrib non-free
+
+更新
+
+$ apt-get update
+
+====================================
 TITLE: Debian 中文乱码
 ====================================
 
@@ -184,3 +205,100 @@ TITLE: find 命令用法
 
 # 查找当前目录下~后缀的文件
 find . -name "*~" -exec ls {} \;
+
+====================================
+TITLE: 安装 xfce
+
+URL: blog.sina.com.cn/s/blog_671784400100xyf7.html
+====================================
+
+$ apt-get install xorg
+$ apt-get install xfce4
+$ apt-get install xfce4-goodies
+
+无需其他设置，用命令即可启动轻量级图形界面xfce4
+
+$ startx
+
+安装启动界面
+
+$ apt-get install slim
+
+修改/etc/slim.conf，把xfce4作为default
+
+#login_cmd  exec /bin/bash -login /etc/X11/Xsession %session
+login_cmd   exec /bin/bash -login /etc/X11/Xsession startxfce4
+
+====================================
+TITLE: 安装无线网卡
+
+URL: wiki.debian.org/iwlwifi?action=show
+====================================
+
+在源中添加non-free组件，/etc/apt/sources.list
+
+# Debian 7.0 "Wheezy"
+deb http://mirrors.163.com/debian/ wheezy main contrib non-free
+
+更新源，并安装firmware-iwlwifi
+
+$ apt-get update
+$ apt-get instal firmware-iwlwifi
+
+重启安装的模块
+
+$ modprobe -r iwlwifi
+$ modprobe iwlwifi
+
+安装网络管理工具
+
+$ apt-get install wicd
+
+修改/etc/network/interfaces如下
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+#auto eth0
+#iface eth0 inet dhcp
+
+进行如下操作
+
+# adduser david netdev
+# /etc/init.d/dbus reload
+
+# /etc/init.d/wicd start
+# exit
+
+$ wicd-client -n
+
+====================================
+TITLE: 安装字体
+====================================
+
+文泉宋体
+
+$ apt-get install xfonts-wqy
+$ apt-get install ttf-wqy-zenhei ttf-wqy-microhei
+
+uming宋体
+
+$ apt-get install fonts-arphic-uming ttf-arphic-uming
+
+外来字体（如Windows中的字体）
+把字体文件（simsun.ttc)直接拷贝到~/.fonts下，即可
+
+====================================
+TITLE: 安装拼音输入法
+====================================
+
+$ apt-get install ibus-pinyin
+
+装好之后，重启，手动添加输入法
+
+Application Menu -> Settings -> IBus Preferences
+Input Method -> Select an input method -> Chinese - Pinyin
+
+添加，完成
