@@ -88,3 +88,27 @@ C-c C-q *                  slime-close-all-parens-in-sexp，关闭所有的括�
 
 C-c C-l                    slime-load-file，加载文件
 C-c C-k                    加载当前 buffer 的文件
+
+====================================
+TITLE: 使用ibus拼音输入法
+====================================
+
+下载emacs的ibus插件，ibus-el
+
+下载地址: https://launchpad.net/ibus.el
+
+$ cp ibus-el-0.3.2.tar.gz ~/.emacs.d/
+$ tar zxvf ibus-el-0.3.2.tar.gz
+
+ibus的demo进程需要使用python-xlib, 安装
+
+$ apt-get install python-xlib
+
+修改.emacs文件，添加如下几行
+
+;; set ibus-el
+(add-to-list 'load-path "~/.emacs.d/ibus-el-0.3.2/")
+(require 'ibus)
+(add-hook 'after-init-hook 'ibus-mode-on)
+
+重启emacs，即可使用ibus
