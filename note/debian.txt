@@ -302,3 +302,18 @@ Application Menu -> Settings -> IBus Preferences
 Input Method -> Select an input method -> Chinese - Pinyin
 
 添加，完成
+
+====================================
+TITLE: 安装chromium浏览器
+====================================
+
+$ aptitude install chromium-browser-l10n
+
+优化chromium字体，设置字体，全部改为: AR PL UMing CN
+
+为chromium安装flash
+
+修改sources.list，每一项追加：non-free contrib
+
+$ aptitude search flashplugin
+$ apt-get install flashplugin-nonfree
