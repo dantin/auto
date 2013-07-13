@@ -337,10 +337,22 @@ TITLE: chromium无法上网
 去掉 Predict network actions to improve page load performance
 
 ====================================
-TITLE： 常用软件
+TITLE:  常用软件
 ====================================
 
 $ apt-get install filezilla
 $ apt-get install evince
 $ apt-get install vlc
 $ apt-get install audacious
+
+====================================
+TITLE: 安装virtualbox
+
+URL: http://linux.chinaunix.net/techdoc/system/2009/02/10/1061630.shtml
+     http://linux.chinaunix.net/techdoc/install/2007/12/10/974069.shtml
+     https://www.virtualbox.org/manual/ch02.html#install-linux-host
+====================================
+
+$ apt-install virtual-ose virtualbox-ose-source
+$ sudo adduser `whoami` vboxusers
+
