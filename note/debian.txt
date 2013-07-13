@@ -335,3 +335,12 @@ TITLE: chromium无法上网
 可能于设置有关，Settings -> Show advanced settings...
 
 去掉 Predict network actions to improve page load performance
+
+====================================
+TITLE： 常用软件
+====================================
+
+$ apt-get install filezilla
+$ apt-get install evince
+$ apt-get install vlc
+$ apt-get install audacious
