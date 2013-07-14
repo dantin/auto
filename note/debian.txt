@@ -356,3 +356,18 @@ URL: http://linux.chinaunix.net/techdoc/system/2009/02/10/1061630.shtml
 $ apt-install virtual-ose virtualbox-ose-source
 $ sudo adduser `whoami` vboxusers
 
+====================================
+TITLE: 设置声卡
+====================================
+
+$ sudo apt-get install alsa-base
+$ sudo apt-get install alsa-utils
+$ sudo apt-get install alsa-oss
+
+初始化声卡设置
+
+$ sudo alsactl init
+
+调节音量
+
+$ sudo alsamixer
