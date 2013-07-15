@@ -6,6 +6,36 @@ TITLE: 将 iso 映象写入 U盘
 # sync
 
 ====================================
+TITLE: 格式化U盘
+====================================
+
+如果U盘做过镜像启动盘，U盘的大小会变小，因为有一部分空间隐藏了。可以通过Windows的设备管理查看详细信息。
+
+如果要恢复U盘容量，需要完全格式化U盘。方法如下：
+
+# umount /dev/sdb1
+# umount /dev/sdb
+
+# mkfs.vfat /dev/sdb
+# mkfs.vfat /dev/sdb1
+
+如果mkfs.vfat /dev/sdb出现如下错误：
+
+mkfs.vfat: unable to open /dev/sdb
+
+则需要先格式化/dev/sdb1，即：
+
+# mkfs.vfat /dev/sdb1
+
+如果格式化/dev/sdb出现如下错误
+
+mkfs.vfat: Device partition expected, not making filesystem on entire device '/dev/sdb' (use -I to override)
+
+则需要使用-I参数来完成格式化，即：
+
+# mkfs.vfat -I /dev/sdb
+
+====================================
 TITLE: 更新Debian源
 ====================================
 
