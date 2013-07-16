@@ -28,7 +28,7 @@ URL:   http://sed.sourceforge.net/sed1line_zh-CN.html
 
 # 在每一行后面增加一空行
 
-$ sed 
+$ sed G
 
 # 将原来的所有空行删除并在每一行后面增加一空行。
 # 这样在输出的文本中每一行后面将有且只有一空行。
