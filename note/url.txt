@@ -1,0 +1,9 @@
+
+Practical Common Lisp
+http://www.gigamonkeys.com/book/
+
+介绍Emacs使用
+http://www.caole.net/diary/index.html
+
+一个Lisp学习者的博客
+http://icodeit.org/
