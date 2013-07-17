@@ -1,0 +1,18 @@
+Oracle client
+
+https://help.ubuntu.com/community/Oracle%20Instant%20Client
+http://www.gena01.com/forum/gena01-blog/oracle-instant-client-11g-on-ubuntu/
+http://openwares.net/database/debian_amd64_install_10g_r2_database.html
+
+
+davmail+thunderbird
+读邮件
+
+VPN
+http://bashingbaru.blogspot.com/2011/05/setup-vpn-using-rsa-securid-software.html
+
+wine 跑 RSA，完美运行安装，vpn 用 vpnc ,然后把cisco 的 profile 转一下
+
+WCS
+
+http://www.pingudownunder.com/2009/09/10/getting-websphere-application-7-installed-on-ubuntu-9-04/
