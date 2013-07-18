@@ -1,0 +1,8 @@
+
+# unzip解压到某一目录
+
+$ unzip file.zip -d directory
+
+# tar解压到某一目录
+
+$ tar -zxvf file.tar.gz -C directory
