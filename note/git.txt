@@ -54,3 +54,9 @@ $ git config --global credential.helper 'cache --timeout 3600'
 具体的使用方法
 
 $ git help credential-cache
+
+====================================
+TITLE: fatal: remote github already exists.
+====================================
+
+$ git remote rm github
