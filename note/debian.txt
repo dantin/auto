@@ -413,3 +413,17 @@ $ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 安装
 
 $ sudo dpkg -i ./google-chrome-stable_current_amd64.deb
+
+====================================
+TITLE: 开启32体系支持
+====================================
+
+# dpkg --add-architecture i386
+# apt-get update
+
+====================================
+TITLE: 安装wine
+====================================
+
+# apt-get install wine-bin:i386
+# apt-get install vpnc
