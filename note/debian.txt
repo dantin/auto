@@ -504,6 +504,14 @@ LOCAL
 修改系统时间： # date -s "YYYY/MM/DD hh:mm:ss"
 
 ====================================
+TITLE: 删除evolution
+====================================
+
+evolution的总是出现连接错误，于是只能果断删除，用thunderbird
+
+# apt-get remove evolution evolution-common evolution-data-server evolution-data-server-common evolution-plugins libevolution
+
+====================================
 TITLE: 开启32体系支持
 ====================================
 
