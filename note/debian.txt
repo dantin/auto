@@ -415,6 +415,56 @@ $ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 $ sudo dpkg -i ./google-chrome-stable_current_amd64.deb
 
 ====================================
+TITLE: 启动小红点支持
+
+URL: http://wiki.debian.org/InstallingDebianOn/Thinkpad/Trackpoint
+     http://okomestudio.net/biboroku/?p=1816
+====================================
+
+确保xinput已安装，若没有
+
+$ sudo apt-get install xinput
+
+查看TrackPoint相关的event ID
+
+$ xinput list
+⎡ Virtual core pointer                    	id=2	[master pointer  (3)]
+⎜   ↳ Virtual core XTEST pointer              	id=4	[slave  pointer  (2)]
+⎜   ↳ SynPS/2 Synaptics TouchPad              	id=12	[slave  pointer  (2)]
+⎜   ↳ TPPS/2 IBM TrackPoint                   	id=13	[slave  pointer  (2)]
+⎜   ↳ USB Optical Mouse                       	id=16	[slave  pointer  (2)]
+⎣ Virtual core keyboard                   	id=3	[master keyboard (2)]
+    ↳ Virtual core XTEST keyboard             	id=5	[slave  keyboard (3)]
+    ↳ Power Button                            	id=6	[slave  keyboard (3)]
+    ↳ Video Bus                               	id=7	[slave  keyboard (3)]
+    ↳ Video Bus                               	id=8	[slave  keyboard (3)]
+    ↳ Sleep Button                            	id=9	[slave  keyboard (3)]
+    ↳ Integrated Camera                       	id=10	[slave  keyboard (3)]
+    ↳ AT Translated Set 2 keyboard            	id=11	[slave  keyboard (3)]
+    ↳ ThinkPad Extra Buttons                  	id=14	[slave  keyboard (3)]
+    ↳ ACPI Virtual Keyboard Device            	id=15	[slave  keyboard (3)]
+
+这里TrackPoint对应的ID为13
+
+$ xinput --set-prop --type=int --format=8 13 "Evdev Wheel Emulation" 1
+$ xinput --set-prop --type=int --format=8 13 "Evdev Wheel Emulation Button" 2
+$ xinput --set-prop --type=int --format=8 13 "Evdev Wheel Emulation Axes" 6 7 4 5
+
+或者，使用新式命令行
+
+$ xinput --set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
+$ xinput --set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
+$ xinput --set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
+
+若要启动时运行，在用户目录下新建~/.xsessionrc，内容如下：
+
+# for IBM Track Point
+#
+xinput --set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
+xinput --set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
+xinput --set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
+
+====================================
 TITLE: 开启32体系支持
 ====================================
 
