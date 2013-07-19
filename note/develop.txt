@@ -18,7 +18,7 @@ nano /etc/environment
 加入：
 
 export JAVA_HOME=/usr/lib/jvm/j2sdk1.7-oracle
-export CLASSPATH=$JAVA_HOME/lib
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 保存。
 
@@ -30,3 +30,19 @@ sudo update-java-alternatives -s j2sdk1.7-oracle
 
 请注意安装完后的软件包可能路径会有所不同，请做相应修改。官方说明：
 http://wiki.debian.org/Java/Sun#Installation
+
+====================================
+TITLE: ANT
+====================================
+
+$ sudo apt-get install ant
+
+默认安装在/usr/share/ant/
+
+在/etc/environment中增加如下内容
+
+export ANT_HOME=/usr/share/ant
+
+使env内容生效
+
+$ . /etc/environment
