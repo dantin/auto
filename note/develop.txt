@@ -17,8 +17,8 @@ nano /etc/environment
 
 加入：
 
-JAVA_HOME=/usr/lib/jvm/j2sdk1.7-oracle
-CLASSPATH=$JAVA_HOME/lib
+export JAVA_HOME=/usr/lib/jvm/j2sdk1.7-oracle
+export CLASSPATH=$JAVA_HOME/lib
 
 保存。
 
