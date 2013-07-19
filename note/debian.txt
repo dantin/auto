@@ -512,6 +512,39 @@ evolution的总是出现连接错误，于是只能果断删除，用thunderbird
 # apt-get remove evolution evolution-common evolution-data-server evolution-data-server-common evolution-plugins libevolution
 
 ====================================
+TITLE: 安装Mozilla软件
+
+URL:  http://wangye.org/blog/archives/609/
+====================================
+
+登录Ubuntuzilla项目主页，该项目主要是打包了最新的Mozilla基金会的FireFox、SeaMonkey以及ThunderBird的Repository，大家看到Ubuntu可能会认为只是为Ubuntu这款衍生系统准备的，其实不然，我们也可以将其应用到Debian系统上以及其他基于Debian的衍生系统上。
+
+1. 添加APT源地址
+
+我们需要在/etc/apt/sources.list添加下面的源地址：
+
+deb http://downloads.sourceforge.net/project/ubuntuzilla/mozilla/apt all main
+
+2. 导入密钥Key
+
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com C1289A29
+
+3. 更新APT源列表
+
+sudo apt-get update
+
+4. 安装软件
+
+通过下面的命令可以分别安装FireFox、SeaMonkey以及ThunderBird：
+
+# 安装FireFox
+sudo apt-get install firefox-mozilla-build
+# 安装ThunderBird
+sudo apt-get install thunderbird-mozilla-build
+# 安装SeaMonkey
+sudo apt-get install seamonkey-mozilla-build
+
+====================================
 TITLE: 开启32体系支持
 ====================================
 
