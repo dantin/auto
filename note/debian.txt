@@ -545,6 +545,36 @@ sudo apt-get install thunderbird-mozilla-build
 sudo apt-get install seamonkey-mozilla-build
 
 ====================================
+TITLE: Thunderbird DavMail workstation代替Outlook访问Exchange
+
+URL:   http://blog.csdn.net/sheismylife/article/details/7402935
+====================================
+
+下载DavMail workstation的安装包
+
+http://davmail.sourceforge.net/download.html
+
+选择64位版本davmail-linux-x86_64-version.tgz
+
+解压并确认Java环境已经装好，运行davmail
+
+$ tar -zxvf davmail-linux-x86_64-version.tgz  
+$ nohum ./davmail.sh&
+
+注意OWA(Exchange) URL: 里面填写web版本访问你的Exchange server上邮件的登录地址。也就是登录界面出现的时候将网页地址复制下来，填入这里即可。其他默认设置。这里并不需要输入你的用户名和密码，那个在Thunderbird里面设置。
+
+启动Thunderbird,然后创建一个已经存在的email账户。
+
+Your name:     First Last
+Email address: xxx@mail.com
+Password:      xxxxxxxx
+
+注意：一个是两个server都填127.0.0.1，对应端口和设置都参考devmail，SSL：None, Authentication: Normal password
+
+Username填写你在exchange server上的帐号，根据exchange server版本，有时候需要用这种形式：域名\username，然后点击创建帐号按钮。
+
+
+====================================
 TITLE: 开启32体系支持
 ====================================
 
