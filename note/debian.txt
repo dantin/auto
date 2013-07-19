@@ -587,3 +587,11 @@ TITLE: 安装wine
 
 # apt-get install wine-bin:i386
 # apt-get install vpnc
+
+====================================
+TITLE: 支持exFAT文件系统
+====================================
+
+$ sudo apt-get install exfat-fuse
+
+# mount.exfat-fuse /deb/sdb /mnt
