@@ -465,6 +465,45 @@ xinput --set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
 xinput --set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
 
 ====================================
+TITLE: 修改系统时间
+====================================
+
+Linux和Windows加载处理系统时间的差异
+
+Linux 在每次启动时会加载BIOS的时间，并在退出时把时间写回BIOS。默认情况下，Linux认为BIOS里的时间是世界时间（UTC）。因此它读入世界时间然后根据用户所在时区计算出本地时间。对于中国而言，就是加上8小时。
+
+Windows只认识本地时间，所以登录 Windows后设置的时间会写回BIOS。再登录进Debian会被识别为是世界时间，从而导致Linux下的本地时间比正确时间快了8小时（针对中国东8区）。 如果在Linux里修改本地时间（减去8小时），世界时间相应的也会被减去8小时，这又会导致Windows里的时间慢了8小时（因为Linux在退出时会 将修改后的世界时间写回BIOS）。
+
+解决办法
+
+设置本地时区：
+
+# dpkg-reconfigure tzdata
+
+关闭默认UTC时间：
+
+vi /etc/default/rcS  把UTC=yes改为UTC=no，使Linux默认BIOS时间为本地时间。
+
+但实际上，该选项不存在。查看说明，发现man文件在NOTE标题下有这么一句话：
+
+The UTC setting is replaced by the   UTC or LOCAL setting in /etc/adjtime, and  should  have  been  migrated  automatically.
+
+原来在debian7中UTC设置跑到了/etc/adjtime 文件里头了，如下：
+
+# cat /etc/adjtime 
+0.143232 1370369519 0.000000 1370369519 
+UTC
+
+只需要把UTC改为LOCAL即可，改完后如下：
+
+# cat /etc/adjtime
+0.143232 1370369519 0.000000
+1370369519
+LOCAL
+
+修改系统时间： # date -s "YYYY/MM/DD hh:mm:ss"
+
+====================================
 TITLE: 开启32体系支持
 ====================================
 
