@@ -46,3 +46,11 @@ export ANT_HOME=/usr/share/ant
 使env内容生效
 
 $ . /etc/environment
+
+====================================
+TITLE: gdb
+====================================
+
+安装
+
+$ sudo apt-get install gdb
