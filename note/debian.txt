@@ -597,3 +597,21 @@ URL: https://code.google.com/p/exfat/wiki/HOWTO
 $ sudo apt-get install exfat-fuse
 
 # mount.exfat-fuse /deb/sdb /mnt
+
+====================================
+TITLE: home下生成libpeerconnection.log解决方法
+====================================
+
+无意发现在$HOME下有文件libpeerconnection.log，删除后再次出现，原来是Chrome浏览器所生成的临时文件，解决办法如下：
+
+编辑此文件/opt/google/chrome/google-chrome [需要ROOT权限]
+
+找到下面这行代码
+
+exec-a "$ 0" "$ HERE / chrome" "$ @"
+
+在这行代码前添加
+
+cd /tmp
+
+保存，这样libpperconnection.log就会被生成在/tmp下了。
