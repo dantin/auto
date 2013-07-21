@@ -590,6 +590,8 @@ TITLE: 安装wine
 
 ====================================
 TITLE: 支持exFAT文件系统
+
+URL: https://code.google.com/p/exfat/wiki/HOWTO
 ====================================
 
 $ sudo apt-get install exfat-fuse
