@@ -615,3 +615,86 @@ exec-a "$ 0" "$ HERE / chrome" "$ @"
 cd /tmp
 
 保存，这样libpperconnection.log就会被生成在/tmp下了。
+
+====================================
+TITLE: 双显卡支持
+
+URL: http://suwako.nomanga.net/
+     http://wiki.debian.org/Bumblebee#Power_Management
+     http://www.shijida.net/?p=26
+====================================
+
+现在预装 Windows 7 的很多笔记本都使用了集成显卡加独立显卡的双显卡技术（如：Nvidia Optimus，其它的显卡品牌不知道 ），一般情况下只使用集成显卡以节省电能，需要 3D 加速的时候再启用独立显卡。这种技术需要操作系统的支持，这个切换的过程可以是自动的。在 Linux 下，有大牛们实现了一种手动的独立显卡启动（BumbleBee）和自动的节能切换（bbswitch），虽然比不上 Windows 7 操作系统级别的原生支持，但也基本可用。安装 BumbleBee 和 bbswitch 的步骤是按照 Debian Wiki : http://wiki.debian.org/Bumblebee 上进行的。方法如下:
+
+1. 查看显卡类型
+
+$ lspci -v
+
+00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09) (prog-if 00 [VGA controller])
+	Subsystem: Lenovo Device 21f4
+	Flags: bus master, fast devsel, latency 0, IRQ 45
+	Memory at f1400000 (64-bit, non-prefetchable) [size=4M]
+	Memory at e0000000 (64-bit, prefetchable) [size=256M]
+	I/O ports at 6000 [size=64]
+	Expansion ROM at <unassigned> [disabled]
+	Capabilities: <access denied>
+	Kernel driver in use: i915
+01:00.0 VGA compatible controller: NVIDIA Corporation GF108 [Quadro NVS 5400M] (rev ff) (prog-if ff)
+	!!! Unknown header type 7f
+
+可以发现本机自带两个显卡，
+
+2. 安装Nvida显卡，这里我选的是私有显卡
+
+$ sudo apt-get install nvidia-glx linux-headers-$(uname -r) nvidia-kernel-dkms
+
+安装驱动过程会提示你修改xorg.conf，不要鸟他，不然就不能使用bumblebee来关闭和开启独显。
+
+设置默认的显卡类型为mesa，即Intel的显卡
+
+$ sudo update-alternatives --set glx /usr/lib/mesa-diverted
+
+3. 安装Bumblebee
+
+添加bumblebee所在源的keyring
+
+$ sudo wget -O - http://suwako.nomanga.net/suwako.asc | apt-key add -
+
+添加以下源列表
+
+deb http://suwako.nomanga.net/debian sid main contrib
+deb-src http://suwako.nomanga.net/debian sid main
+
+更新源信息，安装bumblebee
+
+$ sudo aptitude update
+$ sudo apt-get install bumblebee bumblebee-nvidia
+
+这样就会安装bumblebee, bbswitch-dkms
+
+修改bumblebee配置
+
+编辑/etc/bumblebee/bumblebee.conf
+
+把Driver=后面添加上nvidia把驱动一节的PMMethod=auto修改为PMMethod=bbswitch。
+
+把自己的用户添加到bumblebee的group里去
+
+$ sudo adduser david bumblebee
+
+重启机器
+
+安装成功后，如果某一个程序要使用 3D 加速，如：firefox，可以这样执行“optirun firefox”。执行后，“lsmod”会发现新加载了 nvidia 模块。相关程序结束后，“lsmod”会发现 nvidia 模块消失了。另外，单独分别执行：
+
+$ optirun glxspheres
+$ glxspheres
+
+结果对比一下，也可看出启用 Nvidia 显卡与否的显著区别
+
+设置nvidia
+
+$ optirun nvidia-settings -c :8
+
+会弹出nvidia设置界面
+
+个人感悟的确感觉装了风扇声音下了许多。
