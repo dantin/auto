@@ -54,3 +54,40 @@ TITLE: gdb
 安装
 
 $ sudo apt-get install gdb
+
+====================================
+TITLE: 使用gdb开发
+
+URL: http://www.cs.bu.edu/teaching/tool/emacs/programming/
+====================================
+
+编写程序，emacs自动支持语法高亮显示和代码对齐。
+
+M-x compile编译程序，默认的命令是make -k，不过对于一般的小程序可以自己定制，如gcc -o total sum1.cpp
+
+这时，如果有编译问题，emacs会分屏提示错误信息
+
+C-x ` 自动跳转到有问题的地方
+
+修改程序，重复编译，直至代码可以编译。
+
+一般情况下，还需要进行代码调试，这时可以通过以下命令完成
+
+M-x compile 要在编译命令中打开 -g选项，如：gcc -o avg -g sum1.cpp
+M-x gdb     进入GDB，调试命令为 gdb --annotate=3 avg
+
+(gdb) run < inputfile        用inputfile为输入运行
+(gdb) where                  打开dumpfile的调用链
+(gdb) up                     从调用链逐回朔
+(gdb) print i                打印i的指
+(gdb) set args < inputfile   同1
+(gdb) break 47               设置断点
+(gdb) delete 1               删除断点
+(gdb) continue               继续
+(gdb) next                   下一句
+(gdb) run                    运行
+(gdb) step                   跳进方法调试
+(gdb) display sum            显示变量
+(gdb) set variable sum = 100 手工设置变量
+(gdb) help                   帮助
+(gdb) quit                   退出
