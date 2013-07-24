@@ -73,8 +73,9 @@ C-x ` 自动跳转到有问题的地方
 
 一般情况下，还需要进行代码调试，这时可以通过以下命令完成
 
-M-x compile 要在编译命令中打开 -g选项，如：gcc -o avg -g sum1.cpp
-M-x gdb     进入GDB，调试命令为 gdb --annotate=3 avg
+M-x compile           要在编译命令中打开 -g选项，如：gcc -o avg -g sum1.cpp
+M-x gdb               进入GDB，调试命令为 gdb --annotate=3 avg
+M-x gdb-many-windows  进入多窗口调试界面
 
 (gdb) run < inputfile        用inputfile为输入运行
 (gdb) where                  打开dumpfile的调用链
