@@ -391,6 +391,28 @@ $ apt-get install linux-headers-amd64 virtualbox
 $ sudo adduser `whoami` vboxusers
 
 ====================================
+TITLE: Virtual Box在Guest OS中使用分享文件夹
+====================================
+
+如果Guest OS是Windows
+
+  net use x: \\vboxsvr\
+
+　x <=指定的磁盘编号
+
+如果Guest OS是Linux的：
+
+  mount –t vboxsf [-o OPTIONS] sharename mountpoint
+
+　sharename <==分享文件夹的名称
+
+　mountpoint <==要挂载的文件夹位置（建议自行建立一个文件夹来挂载）
+
+ 
+
+注意：要使用共用文件夹　必须先安裝VirtualBox的Guest Additions才可使用！！
+
+====================================
 TITLE: 设置声卡
 ====================================
 
