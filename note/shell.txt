@@ -1,0 +1,37 @@
+====================================
+echo
+====================================
+如果要打印！，就不要将其放入双引号中，可以在前面加个转义字符\
+当在echo中使用带双引号的文本时，应该在echo之前之用set +H，以便能够正常地显示!
+
+david@walle:~$ echo "aaaa!"
+bash: !": event not found
+david@walle:~$ echo aaaa!
+aaaa!
+david@walle:~$ echo "aaaa\!"
+aaaa\!
+david@walle:~$ set +H
+david@walle:~$ echo "aaaa!"
+aaaa!
+
+默认情况下，echo会将一个换行符追加到文本尾部。
+
+可以使用-n来忽略结尾的换行符
+
+$ echo -n "abc"
+
+可以使用-e指名字符串包含转义字符
+
+$ echo -e "1\t2\t3"
+
+彩色输出
+
+$ echo -e "\e[1;31mThis is red text \e[0m"
+
+This is red text 
+
+\e[1;31设置为红色，\e[0颜色重置
+
+重置=0，黑色=30，红色=31，绿色=32，黄色=33，蓝色=34，洋红=35，青色=36，白色=37
+
+printf: 使用格式化字符串输出
