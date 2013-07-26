@@ -1,20 +1,33 @@
 ====================================
-echo
+终端打印
 ====================================
-如果要打印！，就不要将其放入双引号中，可以在前面加个转义字符\
-当在echo中使用带双引号的文本时，应该在echo之前之用set +H，以便能够正常地显示!
 
-david@walle:~$ echo "aaaa!"
-bash: !": event not found
-david@walle:~$ echo aaaa!
-aaaa!
-david@walle:~$ echo "aaaa\!"
-aaaa\!
-david@walle:~$ set +H
-david@walle:~$ echo "aaaa!"
-aaaa!
+终端打印的命令有两类：
+
+* printf 格式化输出
+* echo   普通输出
+
+### echo
 
 默认情况下，echo会将一个换行符追加到文本尾部。
+
+使用不带引号的echo不能显示;等字符
+带单引号的echo，不会对变量求值
+带双引号的echo，不能打印一些特殊字符，如!
+
+对于特殊字符，如果要打印！
+
+方法一：不要将其放入双引号中
+方法二：在echo之前之用set +H，以便能够正常地显示!
+
+例子：
+$ echo "aaaa!"
+bash: !": event not found
+$ echo aaaa!
+aaaa!
+$ set +H
+$ echo "aaaa!"
+aaaa!
 
 可以使用-n来忽略结尾的换行符
 
@@ -34,4 +47,7 @@ This is red text
 
 重置=0，黑色=30，红色=31，绿色=32，黄色=33，蓝色=34，洋红=35，青色=36，白色=37
 
-printf: 使用格式化字符串输出
+
+### printf
+
+$ printf "%-5s %-10s %-4s\n" No Name Mark
