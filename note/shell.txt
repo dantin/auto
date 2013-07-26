@@ -51,3 +51,63 @@ This is red text
 ### printf
 
 $ printf "%-5s %-10s %-4s\n" No Name Mark
+
+====================================
+变量和环境变量
+====================================
+
+变量，当前进程中定义，用于存放数据
+环境变量：未在当前进程中定义，而从父进程中继承而来的变量
+
+Bash中，每一个变量的值都是字符串，无论给变量赋值时有没有使用引号，它都以字符串的形式存储
+
+### 查看与终端相关的环境变量
+
+$ env
+
+### 查看某一进程的环境变量，如emacs
+
+# 查看emacs进程号
+$ pgrep emacs
+6242
+# 查看进程6242的环境变量
+$ cat /proc/6242/environ
+
+默认的出输出以'\0'分割，为了美观，将'\n'替换'\0'
+
+$ cat /proc/6242/environ | tr '\0' '\n'
+
+$ cat /proc/$(pgrep emacs)/environ | tr '\0' '\n'
+
+变量赋值
+
+$ var=value
+$ var="test value"
+
+变量取值
+
+$ echo $var
+$ echo ${var}
+
+设置环境变量
+
+$ export HTTP_PROXY=http://192.168.0.3:8080
+
+常见环境变量 PATH, HOME, PWD, USER, UID, SHELL, PS1，通常定义位置为/etc/environment, /etc/profile, ~/.bashrc
+
+获得字符串长度
+
+$ echo ${#var}
+
+获得shell版本
+
+$ echo $SHELL
+$ echo $0
+
+检测用户是否为超级用户
+
+$ if [ $UID -ne 0 ]; then
+    echo Not root
+  else
+    echo root
+  fi
