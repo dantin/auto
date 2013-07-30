@@ -22,3 +22,9 @@ http://www.cnblogs.com/gylei/archive/2013/03/16/2963546.html
 
 算法
 http://www.cnblogs.com/chinazhangjie/archive/2010/10/07/1845034.html
+
+Git电子书
+http://git-scm.com/book
+
+BU教程
+http://www.cs.bu.edu/teaching/
