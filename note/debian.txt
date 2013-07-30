@@ -724,3 +724,15 @@ $ optirun nvidia-settings -c :8
 会弹出nvidia设置界面
 
 个人感悟的确感觉装了风扇声音下了许多。
+
+====================================
+TITLE: 通过SSH Tunnel使用代理
+
+URL:   http://www.fclose.com/tutorial/944/proxy-using-ssh-tunnel/
+====================================
+
+$ ssh -D <port> username@sshd_server
+
+输入密码
+
+在浏览器中使用socket 5代理，127.0.0.1:port
