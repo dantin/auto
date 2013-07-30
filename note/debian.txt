@@ -738,3 +738,11 @@ $ ssh -D <port> username@sshd_server
 在浏览器中使用socket 5代理，127.0.0.1:port
 
 可以通过Who am I(http://www.pkill.info/whoami/)来测试IP地址
+
+====================================
+TITLE: 屏幕设置管理ARandR
+====================================
+
+ARandR是一个可视化的 XRandR管理器。可以改变屏幕的分辨率、显示器的相对位置（靠左靠右）、可将配置保存为shell脚本、可设定快捷键。
+
+$ sudo apt-get install arandr
