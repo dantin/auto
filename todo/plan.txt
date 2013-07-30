@@ -16,3 +16,9 @@ wine 跑 RSA，完美运行安装，vpn 用 vpnc ,然后把cisco 的 profile 转
 WCS
 
 http://www.pingudownunder.com/2009/09/10/getting-websphere-application-7-installed-on-ubuntu-9-04/
+
+通用列表
+http://www.cnblogs.com/gylei/archive/2013/03/16/2963546.html
+
+算法
+http://www.cnblogs.com/chinazhangjie/archive/2010/10/07/1845034.html
