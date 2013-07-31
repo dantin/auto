@@ -125,3 +125,27 @@ $ apt-get install python-xlib
 (add-hook 'after-init-hook 'ibus-mode-on)
 
 重启emacs，即可使用ibus
+
+====================================
+TITLE: 用color-theme选择配色方案
+
+URL：  http://www.nongnu.org/color-theme/index.html
+       http://www.emacswiki.org/emacs/ColorTheme
+====================================
+
+虽然emacs24选了不同的配色方案解决办法，但在Wheezy中，默认的emacs还是23，因此，仍旧使用color theme
+
+安装color-theme
+
+$ sudo apt-get install emacs-goodies-el
+
+选择喜欢的配色方案
+
+M-x color-theme-select
+
+确定后在~/.emacs中加入如下配置内容
+
+;;;; select color theme
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-classic)
