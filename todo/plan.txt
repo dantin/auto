@@ -28,3 +28,6 @@ http://git-scm.com/book
 
 BU教程
 http://www.cs.bu.edu/teaching/
+
+Emacs
+http://caole.net/diary/index.html
