@@ -746,3 +746,21 @@ TITLE: 屏幕设置管理ARandR
 ARandR是一个可视化的 XRandR管理器。可以改变屏幕的分辨率、显示器的相对位置（靠左靠右）、可将配置保存为shell脚本、可设定快捷键。
 
 $ sudo apt-get install arandr
+
+====================================
+TITLE: 将jpg转成pdf
+====================================
+
+安装imagemagick
+
+$ sudo apt-get install imagemagick
+
+使用它的convert组件
+
+将一张图片转换成pdf文件
+
+$ convert cjy2.jpg letter.pdf
+
+将多张图片转换成pdf文件
+
+$ convert cjy.jpg cjy1.jpg resume.pdf
