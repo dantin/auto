@@ -1,37 +1,4 @@
 ====================================
-TITLE: 安装Sun JDK
-
-URL: http://www.leadnt.com/2013/05/debian-7wheezyapache2-22java7tomcat7-configur/
-     http://wiki.debian.org/Java/Sun#Installation
-====================================
-
-对于Debian的Wheezy或更高版本，apt-get软件库里不再包含sun的java包；不过，你可以使用 java-package 把oracle提供的JDK软件打包成通用的debian格式。要生成wheezy或以上版本可用的软件包，这样做：
-
-先安装java-package：apt-get install java-package
-到 http://www.oracle.com/technetwork/java/javase/downloads/index.html 下载最新的jdk；
-输入命令：make-jpkg <jdk 文件名>
-安装生成的deb：dpkg -i <deb 文件名>
-配置环境：
-
-nano /etc/environment
-
-加入：
-
-export JAVA_HOME=/usr/lib/jvm/j2sdk1.7-oracle
-export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-
-保存。
-
-设置默认jdk：
-
-sudo update-java-alternatives -l
-
-sudo update-java-alternatives -s j2sdk1.7-oracle
-
-请注意安装完后的软件包可能路径会有所不同，请做相应修改。官方说明：
-http://wiki.debian.org/Java/Sun#Installation
-
-====================================
 TITLE: ANT
 ====================================
 
